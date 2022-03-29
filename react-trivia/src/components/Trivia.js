@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { render } from '@testing-library/react';
 
 const Trivia = () => {
     const [categories, setCategories] = useState([]);
@@ -10,11 +11,21 @@ const Trivia = () => {
             .then((res) => setCategories(res.data.trivia_categories));
     }, []);
 
+// useEffect(() => {
+//     axios
+//         .get(`https://opentdb.com/api.php?amount=10`)
+//         .then(res => {
+//             const categories = res.data.trivia_categories.map(obj => obj.data);
+
+//         setCategories(categories);
+//         });
+// }, []);
+
     return (
         <ul>
             {categories.map((category) => (
                 <li key={category.id}>
-                    <button><a href={`https://opentdb.com/api_count.php?category=${category.id}`}>
+                    <button><a href={`https://opentdb.com/api.php?amount=10${category.id}`}>
                         {category.name}
                     </a></button>
                 </li>
@@ -24,3 +35,4 @@ const Trivia = () => {
 };
 
 export { Trivia }
+
