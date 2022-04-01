@@ -1,43 +1,34 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-
-const Question = (props) => {
-    const [isCorrect, setIsCorrect] = useState(null);
-    const allAnswers = [props.correctAnswer];
-        props.incorrectAnswers.forEach((incorrectAnswer) => {
-        allAnswers.push(incorrectAnswer);
-    });
-    const onClick = (text) => {
-        console.log(text, props.correctAnswer);
-        if (text === props.correctAnswer) {
-            setIsCorrect(true);
-            props.incrementScore();
-        } else {
-            setIsCorrect(false);
-            props.decrementScore();
-        }
-    };
-    return (
-        <>
-            <h3 className="question">{props.question}</h3>
-            <div className="answerDiv">
-                {allAnswers.sort().map((answer, index) => (
-                    <button className="answers" onClick={() => onClick(answer)}>
-                        {answer}
-                    </button>
-                ))}
-                {isCorrect === true && (
-                    <>
-                        <div>correct</div>
-                    </>
-                )}
-                {isCorrect === false && <div>incorrect</div>}
-            </div>
-        </>
-    );
+const Question = ({ question, setScore, score }) => {
+  const [isAnswered, setisAnswered] = useState(false);
+  return (
+    <div>
+      <p>{question.question}</p>
+      <button
+        disabled={isAnswered}
+        onClick={() => {
+          console.log("correct answer selected!");
+          setScore((score += 1));
+          setisAnswered(true);
+        }}
+      >
+        {question.correct_answer}
+      </button>
+      <button
+        disabled={isAnswered}
+        onClick={() => {
+          console.log("correct answer selected!");
+          setisAnswered(true);
+        }}
+      >
+        {question.incorrect_answers}
+      </button>
+    </div>
+  );
 };
 
-export { Question }
+export default Question;
 
 
 //   // const getQuestion = (id) => {

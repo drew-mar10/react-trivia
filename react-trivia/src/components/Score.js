@@ -1,18 +1,7 @@
-import React, { useEffect } from 'react';
+import React from "react";
 
-const Score = ({ isCorrect, score, setScore }) => {
-    
-    useEffect(() => {
-        if (isCorrect === true) {
-            setScore(score + 1)
-        }
-    }, [isCorrect])
+const Score = ({ score }) => {
+  return `Well done! Your score is: ${score}`;
+};
 
-    return (
-        <div>
-            <p>Score: {score}</p>
-        </div>
-    );
-}
-
-export { Score }
+export default Score;
