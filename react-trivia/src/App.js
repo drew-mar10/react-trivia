@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import he from "he";
 import CategorySelect from "./components/CategorySelect";
 import Question from "./components/Question";
 import Score from "./components/Score";

@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import Question from "./Question";
+import React from "react";
 
-const Score = ({ score, setHome, setEndGame }) => {
+const Score = ({ score, home, setEndGame }) => {
     return (
         <>
     <h2>Your score is: {score}</h2>
     <button className="returnHome"
         onClick={() => {
-        setHome(true)
+        home(true)
         setEndGame(false)
         }}>
             Home
