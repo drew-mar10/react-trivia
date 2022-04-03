@@ -3,11 +3,10 @@ import React from "react";
 const CategorySelect = ({ category, setSelected, setHome }) => {
     return (
     <div>
-        <button
+        <button className="catButts"
             onClick={() => {
-                console.log("category selected!");
             setSelected(category.id);
-            setHome(false)
+            setHome(true)
         }}>
         {category.name}
         </button>

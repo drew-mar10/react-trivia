@@ -1,16 +1,22 @@
-#root {
-    background-color:papayawhip ;
+#root{
+    margin: 5pt;
+    padding: 5pt;
 }
 
-.main{
-    background-color:aquamarine
+main{
+    background-color:mistyrose
 }
 
 div.container{
     direction: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 h1{
     font-size: 45pt;
+}
+
+button.catButts{
+    background-color: turquoise;
+
 }
