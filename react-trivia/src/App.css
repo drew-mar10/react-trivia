@@ -1,0 +1,16 @@
+#root {
+    background-color:papayawhip ;
+}
+
+.main{
+    background-color:aquamarine
+}
+
+div.container{
+    direction: flex;
+    flex-direction: row;
+}
+
+h1{
+    font-size: 45pt;
+}

@@ -1,75 +1,85 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import he from "he";
 import CategorySelect from "./components/CategorySelect";
 import Question from "./components/Question";
 import Score from "./components/Score";
+import './App.css';
 
 const App = () => {
     const categoriesURL = "https://opentdb.com/api_category.php";
-    const questionsURL =
-      "https://opentdb.com/api.php?amount=10&type=boolean&category=";
+    const questionsURL = "https://opentdb.com/api.php?amount=10&category=";
     const [categories, setCategories] = useState([]);
     const [selected, setSelected] = useState(null);
     const [questions, setQuestions] = useState([]);
     const [score, setScore] = useState(0);
     const [endGame, setEndGame] = useState(false);
-  
-    // ask for a list of categories
+    const [home, setHome] = useState(true)
+
+
+//Categories
+
     useEffect(() => {
-      axios.get(categoriesURL).then((response) => {
+    axios
+    .get(categoriesURL)
+    .then((response) => {
         setCategories(response.data.trivia_categories);
-      });
+    });
     }, []);
-  
-    // useEffect(() => {}, [])
-  
-    // ask for a list questions based off the selected category
+
+
+//Questions
+
     useEffect(() => {
-      axios.get(questionsURL + `${selected}`).then((response) => {
+    axios
+    .get(questionsURL + `${selected}`)
+    .then((response) => {
         console.log(response);
-        setQuestions(response.data.results);
-      });
+    setQuestions(response.data.results); setHome(false)
+    });
     }, [selected]);
-  
+
     if (endGame) {
-      return <Score score={score} />;
+        return <Score score={score} />;
     }
-  
+
+
     return (
-      // Ternary operator syntax
-      // condition ? what to do if true : what to do if false
-      <div id="container">
+    <main>
+        <h1><center>Play this trivia</center></h1>
+
+    <div className="container">
         {questions.length > 0 ? (
-          <div>
-            {questions.map((question, idx) => {
-              return (
-                <Question
-                  key={idx}
-                  question={question}
-                  setScore={setScore}
-                  score={score}
-                />
-              );
-            })}
-            <button onClick={() => setEndGame(true)}>Finish Game</button>
-          </div>
-        ) : (
-          categories.map((category) => {
+        <div>
+        {questions.map((question, idx) => {
             return (
-              <CategorySelect
+                <Question
+                key={idx}
+                question={question}
+                setScore={setScore}
+                score={score}
+                />
+            );
+            })}
+            <button onClick={() => setEndGame(true)}>Add My Score</button>
+        </div>
+        ) : (
+        categories.map((category) => {
+            return (
+            <CategorySelect
                 key={category.id}
                 category={category}
-                setSelected={setSelected}
-              />
+                setSelected={setSelected}/>
             );
-          })
+        })
         )}
-      </div>
+    </div>
+    </main>
     );
-  };
-  
-  export default App;
-  
+};
+
+export default App;
+
 
 
 
