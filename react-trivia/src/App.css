@@ -7,16 +7,215 @@ main{
     background-color:mistyrose
 }
 
-div.container{
-    direction: flex;
-    flex-direction: column;
+div.headerDiv{
+    margin: 5pt;
+    margin-bottom: 55pt;
+    padding-top: 15pt;
 }
 
-h1{
+h1 {
+    background-color:turquoise;
+    border: 2px solid black;
+    box-sizing: border-box;
+    color: #000000;
+    display: flex;
+    font-family: 'Amatic SC', cursive;
     font-size: 45pt;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 3.5rem;
+    padding: .75rem 1.65rem;
+    margin-top: 5pt;
+    position: relative;
+    text-align: center;
+    text-decoration: none #000000 solid;
+    text-decoration-thickness: auto;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    cursor: pointer;
+    transform: rotate(-8deg);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
-button.catButts{
-    background-color: turquoise;
+div.categoryQuestion{
+    margin: 10pt;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 
+button.catButts {
+    background-color: #3DD1E7;
+    border: 0 solid #E5E7EB;
+    box-sizing: border-box;
+    color: #000000;
+    display: flex;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1rem;
+    font-weight: 900;
+    justify-content: center;
+    line-height: 1.75rem;
+    padding: .75rem 1.65rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none #000000 solid;
+    text-decoration-thickness: auto;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+    cursor: pointer;
+    transform: rotate(-2deg);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+button.catButts:focus {
+    outline: 2;
+}
+
+button.catButts:after {
+    content: '';
+    position: absolute;
+    border: 1px solid #000000;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+
+button.catButts:hover:after {
+    bottom: 2px;
+    left: 2px;
+}
+
+@media (min-width: 768px) {
+button.catButts {
+    padding: .75rem 3rem;
+    font-size: 1.25rem;
+    }
+}
+
+div.questDiv{
+    border-radius: 3pt;
+    border-color: black;
+}
+
+button.catButts, button.addScore{
+    background-color: turquoise;
+}
+
+button.btn1, button.btn2 {
+    align-self: center;
+    background-color: #fff;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+button.btn1:hover {
+    box-shadow: rgba(0, 0, 0, 3) 2px 8px 8px -5px;
+    transform: translate3d(0, 5px, 0);
+}
+
+button.btn2:hover {
+    box-shadow: rgba(0, 0, 0, 3) 2px 8px 8px -5px;
+    transform: translate3d(0, 5px, 0);
+}
+
+button.btn1:focus {
+    box-shadow:rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+button.btn2:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+p {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 900;
+}
+
+button.addScore{
+    background-color:turquoise;
+    border: 0 solid #E5E7EB;
+    box-sizing: border-box;
+    color: #000000;
+    display: flex;
+    font-family: 'Amatic SC', cursive;
+    font-size: 35pt;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 3.5rem;
+    padding: .75rem 1.65rem;
+    margin-top: 5pt;
+    position: relative;
+    text-align: center;
+    text-decoration: none #000000 solid;
+    text-decoration-thickness: auto;
+    width: 75%;
+    max-width: 300px;
+    position: relative;
+    cursor: pointer;
+    transform: rotate(3deg);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+button.homeButt {
+    align-self: center;
+    background-color: #fff;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 15px;
+    outline: none;
+    padding: .50rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }

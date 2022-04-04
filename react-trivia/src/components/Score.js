@@ -1,16 +1,12 @@
 import React from "react";
 
-const Score = ({ score, home, setEndGame }) => {
+const Score = ({ score, questions, setHome, setEndGame }) => {
     return (
         <>
+        <main>
+            <h1>Results</h1>
     <h2>Your score is: {score}</h2>
-    <button className="returnHome"
-        onClick={() => {
-        home(true)
-        setEndGame(false)
-        }}>
-            Home
-        </button>
+        </main>
         </>
     )
 };

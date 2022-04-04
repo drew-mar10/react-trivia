@@ -39,15 +39,26 @@ const App = () => {
     }, [selected]);
 
     if (endGame) {
-        return <Score score={score} />;
-    }
+        return (
+        <>
+        <Score score={score} />
 
+    <div>
+    <button className="homeButt" onClick={() => {setEndGame(false); setHome(true); setQuestions([]); setScore(0)}}>Play Again</button>
+    </div>
+    </>
+    );
+}
+if (score === 0 && home || endGame === false) {
 
     return (
     <main>
-        <h1><center>Play this trivia</center></h1>
+        <div className="headerDiv" onClick={() => home(true)}>
+        <h1><center>It's called Trivi-'ah', not trivi-'uh' </center></h1>
+        </div>
 
-    <div className="container">
+    <div className="categoryQuestion">
+        {/* <ul> */}
         {questions.length > 0 ? (
         <div>
         {questions.map((question, idx) => {
@@ -60,7 +71,8 @@ const App = () => {
                 />
             );
             })}
-            <button onClick={() => setEndGame(true)}>Add My Score</button>
+            <button className="addScore" onClick={() => setEndGame(true)}>Add My Score</button>
+
         </div>
         ) : (
         categories.map((category) => {
@@ -72,9 +84,12 @@ const App = () => {
             );
         })
         )}
+        {/* </ul> */}
+
     </div>
     </main>
-    );
+    )};
+    return null
 };
 
 export default App;

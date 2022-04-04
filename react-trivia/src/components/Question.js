@@ -22,13 +22,13 @@ const Question = ({ question, setScore, score, idx, setHome }) => {
 
     return (
 
-<div className="questContainer">
+<div className="questDiv">
     
     <p>{question.question}</p>
 
     <div className="answerButts">
 
-        <button {...decode} id="btn1" key={idx} disabled={isAnswered}
+        <button {...decode} className="btn1" key={idx} disabled={isAnswered}
         onClick={()=> { 
             if (shuffledAnswers[0] === question.correct_answer) { 
                 setScore((score += 1))
@@ -42,7 +42,7 @@ const Question = ({ question, setScore, score, idx, setHome }) => {
         {shuffledAnswers[0]}</button>
 
 
-        <button id= "btn-2" key={idx} disabled={isAnswered}
+        <button {...decode} className="btn2" key={idx} disabled={isAnswered}
             onClick={()=> { 
             if (shuffledAnswers[1] === question.correct_answer) { 
             setScore((score += 1))
