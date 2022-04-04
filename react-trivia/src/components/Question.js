@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { decode } from "html-entities";
 
 
-const Question = ({ question, setScore, score, idx, setHome }) => {
+const Question = ({ question, setScore, score, idx, i, questions, setQuestions, currentQuestion, setCurrentQuestion }) => {
     const [isAnswered, setisAnswered] = useState(false);
     const [correct, setIsCorrect] = useState(false);
+
+
+    const nextQuest = () => {
+        setCurrentQuestion(i+1);
+    }
 
     let allAnswersArray =  question.incorrect_answers;
         allAnswersArray = [...allAnswersArray, question.correct_answer ]
@@ -55,6 +60,7 @@ const Question = ({ question, setScore, score, idx, setHome }) => {
 
         {shuffledAnswers[1]}</button>
     </div>
+    <button className="nextQuest" onClick={() => nextQuest()}>Next Question</button>
     </div>
     );
 };

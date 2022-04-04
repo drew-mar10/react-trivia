@@ -13,7 +13,8 @@ const App = () => {
     const [questions, setQuestions] = useState([]);
     const [score, setScore] = useState(0);
     const [endGame, setEndGame] = useState(false);
-    const [home, setHome] = useState(true)
+    const [home, setHome] = useState(true);
+    const [currentQuestion, setCurrentQuestion] = useState(0);
 
 
 //Categories
@@ -38,13 +39,24 @@ const App = () => {
     });
     }, [selected]);
 
-    if (endGame) {
+    if (endGame && !home) {
         return (
         <>
-        <Score score={score} />
+        <Score 
+        score={score}
+        setHome={setHome}
+        setEndGame={setEndGame}
+        setCurrentQuestion={setCurrentQuestion}
+        />
 
     <div>
-    <button className="homeButt" onClick={() => {setEndGame(false); setHome(true); setQuestions([]); setScore(0)}}>Play Again</button>
+    <button className="homeButt" onClick={() => {
+        setEndGame(false);
+        setHome(true);
+        setQuestions([]); 
+        setScore(0)}}>
+            Play Again
+    </button>
     </div>
     </>
     );
@@ -53,23 +65,32 @@ if (score === 0 && home || endGame === false) {
 
     return (
     <main>
-        <div className="headerDiv" onClick={() => home(true)}>
-        <h1><center>It's called Trivi-'ah', not trivi-'uh' </center></h1>
+        <div className="headerDiv">
+        <button onClick={() => setHome(true)}><h1><center>It's called Trivi-'ah', not trivi-'uh' </center></h1></button>
         </div>
 
     <div className="categoryQuestion">
         {/* <ul> */}
-        {questions.length > 0 ? (
+        {questions.length > 0 && !home ? (
         <div>
         {questions.map((question, idx) => {
+            if (idx === currentQuestion) {
             return (
                 <Question
                 key={idx}
                 question={question}
                 setScore={setScore}
                 score={score}
+                questions={questions}
+                setQuestions={setQuestions}
+                setCurrentQuestion={setCurrentQuestion}
+                i={idx}
+                currentQuestion={currentQuestion}
                 />
             );
+            } else {
+                return null
+            }
             })}
             <button className="addScore" onClick={() => setEndGame(true)}>Add My Score</button>
 
