@@ -1,6 +1,6 @@
 import React from "react";
 
-const Score = ({ score, questions, setHome, setEndGame }) => {
+const Score = ({ score, setHome, setEndGame, setCurrentQuestion, currentQuestion }) => {
     return (
         <>
         <main>
@@ -8,7 +8,7 @@ const Score = ({ score, questions, setHome, setEndGame }) => {
     <h2>Your score is: {score}</h2>
         </main>
         </>
-    )
+    );
 };
 
 export default Score;

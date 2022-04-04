@@ -60,6 +60,7 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
 
         {shuffledAnswers[1]}</button>
     </div>
+    <br/>
     <button className="nextQuest" onClick={() => nextQuest()}>Next Question</button>
     </div>
     );

@@ -13,7 +13,7 @@ div.headerDiv{
     padding-top: 15pt;
 }
 
-h1 {
+button.h1, h1 {
     background-color:turquoise;
     border: 2px solid black;
     box-sizing: border-box;
