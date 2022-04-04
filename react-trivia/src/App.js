@@ -49,12 +49,12 @@ const App = () => {
         setCurrentQuestion={setCurrentQuestion}
         />
     <div>
-    <button className="homeButt" onClick={() => {
+    {/* <button className="homeButt" onClick={() => {
         setEndGame(false);
         setHome(true);
         setQuestions([]); 
         setScore(0)}}>
-        </button>
+        </button> */}
     </div>
     </>
     );
@@ -64,7 +64,7 @@ if (score === 0 && home || endGame === false) {
     return (
     <main>
         <div className="headerDiv">
-        <button className="h1" onClick={() => setHome(true)}><center>It's called Trivi-'ah', not trivi-'uh' </center></button>
+        <button className="h1" onClick={() => setHome(true)}><center>It's called Trivi-'ah', not trivi-'uh'</center></button>
         </div>
 
     <div className="categoryQuestion">
