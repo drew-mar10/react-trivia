@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { decode } from "html-entities";
-
+import he from "he";
 
 const Question = ({ question, setScore, score, idx, i, questions, setQuestions, currentQuestion, setCurrentQuestion }) => {
     const [isAnswered, setisAnswered] = useState(false);
@@ -29,11 +28,12 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
 
 <div className="questDiv">
     
-    <p>{question.question}</p>
+    {/* <p>{question.question}</p> */}
+    <p>{he.decode(question.question)}</p>
 
     <div className="answerButts">
 
-        <button {...decode} className="btn1" key={idx} disabled={isAnswered}
+        <button className="btn1" key={idx} disabled={isAnswered}
         onClick={()=> { 
             if (shuffledAnswers[0] === question.correct_answer) { 
                 setScore((score += 1))
@@ -47,7 +47,7 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
         {shuffledAnswers[0]}</button>
 
 
-        <button {...decode} className="btn2" key={idx} disabled={isAnswered}
+        <button className="btn2" key={idx} disabled={isAnswered}
             onClick={()=> { 
             if (shuffledAnswers[1] === question.correct_answer) { 
             setScore((score += 1))

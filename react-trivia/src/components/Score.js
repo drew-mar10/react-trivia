@@ -3,7 +3,7 @@ import React from "react";
 const Score = ({ score, setHome, setEndGame, setQuestions, setScore }) => {
     return (
         <>
-        <main>
+        <main className="score">
             <button className="h1" onClick={() => {
         setEndGame(false);
         setHome(true);

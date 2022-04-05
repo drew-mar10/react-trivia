@@ -7,6 +7,11 @@ main{
     background-color:mistyrose
 }
 
+main.score {
+    margin-top: 25pt;
+    height: auto;
+}
+
 div.headerDiv{
     margin: 5pt;
     margin-bottom: 55pt;
@@ -109,7 +114,7 @@ button.catButts, button.addScore{
     background-color: turquoise;
 }
 
-button.btn1, button.btn2 {
+button.btn1, button.btn2, button.nextQuest {
     align-self: center;
     background-color: #fff;
     background-image: none;
@@ -165,7 +170,7 @@ p {
 
 button.addScore{
     background-color:turquoise;
-    border: 0 solid #E5E7EB;
+    border: 1px solid black;
     box-sizing: border-box;
     color: #000000;
     display: flex;
@@ -223,6 +228,7 @@ button.homeButt {
 div.scoreDiv {
     justify-content: right;
     align-items: right;
+    margin-left: 450pt;
 }
 
 h2 {
