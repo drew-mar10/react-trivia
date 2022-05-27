@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Score from "./Score";
 import he from "he";
 
 const Question = ({ question, setScore, score, idx, i, questions, setQuestions, currentQuestion, setCurrentQuestion }) => {
@@ -26,9 +27,9 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
 
     return (
 
-<div className="questDiv">
+    <div className="questDiv">
     
-    {/* <p>{question.question}</p> */}
+    <p><u>Question {i + 1} / 10</u></p>
     <p>{he.decode(question.question)}</p>
 
     <div className="answerButts">
@@ -61,7 +62,15 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
         {shuffledAnswers[1]}</button>
     </div>
     <br/>
-    <button className="nextQuest" onClick={() => nextQuest()}>Next Question</button>
+    <button className="nextQuest" onClick={() => 
+        nextQuest()
+        }>
+            Next question
+    </button>
+
+    <Score
+    score={score}
+    />
     </div>
     );
 };

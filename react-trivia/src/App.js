@@ -25,7 +25,7 @@ const App = () => {
     .then((response) => {
         setCategories(response.data.trivia_categories);
     });
-    }, []);
+    }, [endGame]);
 
 
 //Questions
@@ -44,7 +44,9 @@ const App = () => {
         <>
         <Score 
         score={score}
+        setScore={setScore}
         setHome={setHome}
+        home={home}
         setEndGame={setEndGame}
         setCurrentQuestion={setCurrentQuestion}
         />
@@ -59,7 +61,7 @@ const App = () => {
     </>
     );
 }
-if (score === 0 && home || endGame === false) {
+    if (score === 0 && home || endGame === false) {
 
     return (
     <main>
@@ -90,10 +92,10 @@ if (score === 0 && home || endGame === false) {
                 return null
             }
             })}
-            <button className="addScore" onClick={() => 
+            {/* <button className="addScore" onClick={() => 
             setEndGame(true)}>
                 Add My Score
-            </button>
+            </button> */}
 
         </div>
         ) : (
@@ -102,7 +104,9 @@ if (score === 0 && home || endGame === false) {
             <CategorySelect
                 key={category.id}
                 category={category}
-                setSelected={setSelected}/>
+                setSelected={setSelected}
+                setHome={setHome}
+                />
             );
         })
         )}
