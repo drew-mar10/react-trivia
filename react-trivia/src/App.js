@@ -15,10 +15,27 @@ const App = () => {
     const [endGame, setEndGame] = useState(false);
     const [home, setHome] = useState(true);
     const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [triviaData, setTriviaData] = useState(null);
+    const [currentPage, setCurrentPage] = useState("home");
+    const [errorPrompt, setErrorPrompt] = useState(false);
+    const [quizDuration, setQuizDuration] = useState(10);
+    const [numberOfQuestions, setNumberOfQuestions] = useState(10);
+
+    const restartTrivia = () => {
+        setTriviaData(null);
+        setCurrentPage("home");
+        setHome(true);
+    };
+
+    const isNumberOfQuestionsValid =
+        numberOfQuestions >= 1 && 
+        numberOfQuestions <= 50 &&
+        numberOfQuestions % 1 === 0;
+
+    const formIsValid = quizDuration > 0 && isNumberOfQuestionsValid
 
 
 //Categories
-
     useEffect(() => {
     axios
     .get(categoriesURL)
@@ -27,9 +44,7 @@ const App = () => {
     });
     }, [endGame]);
 
-
 //Questions
-
     useEffect(() => {
     axios
     .get(questionsURL + `${selected}`)
@@ -39,38 +54,58 @@ const App = () => {
     });
     }, [selected]);
 
-    if (endGame && !home) {
-        return (
-        <>
-        <Score 
-        score={score}
-        setScore={setScore}
-        setHome={setHome}
-        home={home}
-        setEndGame={setEndGame}
-        setCurrentQuestion={setCurrentQuestion}
-        />
-    <div>
-    {/* <button className="homeButt" onClick={() => {
-        setEndGame(false);
-        setHome(true);
-        setQuestions([]); 
-        setScore(0)}}>
-        </button> */}
-    </div>
-    </>
-    );
-}
-    if (score === 0 && home || endGame === false) {
+
+
+    // if (endGame && !home) {
+        // return (
+        // <>
+        // <Score 
+        // score={score}
+        // setScore={setScore}
+        // setHome={setHome}
+        // home={home}
+        // setEndGame={setEndGame}
+        // setCurrentQuestion={setCurrentQuestion}
+        // triviaData={triviaData}
+        // setTriviaData={setTriviaData}
+        // setCurrentPage={setCurrentPage}
+        // restartTrivia={restartTrivia}
+        // />
+    // </>
+    // );
+// }
+    //if (score === 0 && home || endGame === false)
 
     return (
     <main>
         <div className="headerDiv">
-        <button className="h1" onClick={() => setHome(true)}><center>It's called Trivi-'ah', not trivi-'uh'</center></button>
+        <button className="h1"
+        onClick={() =>
+        restartTrivia(true)}>
+            <center>
+                It's called Trivi-'ah', not trivi-'uh'
+            </center>
+        </button>
+        </div>
+
+        <div className="scoreDiv">
+        {questions.length === 9 && (
+            <Score 
+            score={score}
+            setScore={setScore}
+            setHome={setHome}
+            home={home}
+            setEndGame={setEndGame}
+            setCurrentQuestion={setCurrentQuestion}
+            triviaData={triviaData}
+            setTriviaData={setTriviaData}
+            setCurrentPage={setCurrentPage}
+            restartTrivia={restartTrivia}
+            />
+        )}
         </div>
 
     <div className="categoryQuestion">
-        {/* <ul> */}
         {questions.length > 0 && !home ? (
         <div>
         {questions.map((question, idx) => {
@@ -86,16 +121,15 @@ const App = () => {
                 setCurrentQuestion={setCurrentQuestion}
                 i={idx}
                 currentQuestion={currentQuestion}
+                triviaData={triviaData}
+                setTriviaData={setTriviaData}
+                setCurrentPage={setCurrentPage}
                 />
             );
             } else {
                 return null
             }
             })}
-            {/* <button className="addScore" onClick={() => 
-            setEndGame(true)}>
-                Add My Score
-            </button> */}
 
         </div>
         ) : (
@@ -110,11 +144,10 @@ const App = () => {
             );
         })
         )}
-        
     </div>
     </main>
-    )};
-    return null
+    );
+    // return null
 };
 
 export default App;
