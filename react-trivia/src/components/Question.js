@@ -68,9 +68,9 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
             Next question
     </button>
 
-    <Score
+    {/* <Score
     score={score}
-    />
+    /> */}
     </div>
     );
 };

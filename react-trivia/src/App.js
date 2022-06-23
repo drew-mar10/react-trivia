@@ -25,6 +25,8 @@ const App = () => {
         setTriviaData(null);
         setCurrentPage("home");
         setHome(true);
+        setScore(0);
+        setCurrentQuestion(0);
     };
 
     const isNumberOfQuestionsValid =
@@ -81,7 +83,7 @@ const App = () => {
         <div className="headerDiv">
         <button className="h1"
         onClick={() =>
-        restartTrivia(true)}>
+        restartTrivia()}>
             <center>
                 It's called Trivi-'ah', not trivi-'uh'
             </center>
