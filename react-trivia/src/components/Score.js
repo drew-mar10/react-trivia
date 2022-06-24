@@ -1,27 +1,27 @@
 import React from "react";
 
-const Score = ({ score, setHome, setEndGame, setCurrentQuestion, setScore, restartTrivia, currentPage }) => {
+const Score = ({ score, getFinalScore, setShowScore, showScore, setHome, setEndGame, setCurrentQuestion, setScore, restartTrivia, currentPage }) => {
     return (
-        <>
+
         <main className="score">
 
         <div className="scoreDiv">
-            <h2>Your score is: {score}</h2>
+            <h2>Your final score is: {score}</h2>
         </div>
 
-        {/* <button className="h1" onClick={() => {
+        <button className="h1" onClick={() => {
         setEndGame(true);
         setHome(true);
-        setCurrentQuestion(0); 
+        // setCurrentQuestion(0); 
         setScore(0);
         restartTrivia(true);
-        currentPage(true);
+        // currentPage(true);
         }}>
-            Play again
-        </button> */}
+            Play again?
+        </button>
 
         </main>
-        </>
+    
     );
 };
 

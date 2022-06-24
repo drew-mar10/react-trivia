@@ -20,6 +20,7 @@ const App = () => {
     const [errorPrompt, setErrorPrompt] = useState(false);
     const [quizDuration, setQuizDuration] = useState(10);
     const [numberOfQuestions, setNumberOfQuestions] = useState(10);
+    const [showScore, setShowScore] = useState(false);
 
     const restartTrivia = () => {
         setTriviaData(null);
@@ -29,13 +30,19 @@ const App = () => {
         setCurrentQuestion(0);
     };
 
-    const isNumberOfQuestionsValid =
-        numberOfQuestions >= 1 && 
-        numberOfQuestions <= 50 &&
-        numberOfQuestions % 1 === 0;
+    // const isNumberOfQuestionsValid =
+    //     numberOfQuestions >= 1 && 
+    //     numberOfQuestions <= 50 &&
+    //     numberOfQuestions % 1 === 0;
 
-    const formIsValid = quizDuration > 0 && isNumberOfQuestionsValid
+    // const formIsValid = quizDuration > 0 && isNumberOfQuestionsValid
 
+    // const getFinalScore = () => {
+    //     const finalScore = 0;
+    //     if (questions.length === 9 && score === 10 && endGame) {
+    //         return finalScore;
+    //     }
+    // }
 
 //Categories
     useEffect(() => {
@@ -58,10 +65,21 @@ const App = () => {
 
 
 
-    // if (endGame && !home) {
-        // return (
-        // <>
-        // <Score 
+    if (endGame && !home) {
+        return (
+        <>
+        <Score
+                    score={score}
+                    setScore={setScore}
+                    setHome={setHome}
+                    home={home}
+                    setEndGame={setEndGame}
+                    // setCurrentQuestion={setCurrentQuestion}
+                    // triviaData={triviaData}
+                    // setTriviaData={setTriviaData}
+                    // setCurrentPage={setCurrentPage}
+                    restartTrivia={restartTrivia}
+                    // showScore={showScore}
         // score={score}
         // setScore={setScore}
         // setHome={setHome}
@@ -72,11 +90,11 @@ const App = () => {
         // setTriviaData={setTriviaData}
         // setCurrentPage={setCurrentPage}
         // restartTrivia={restartTrivia}
-        // />
-    // </>
-    // );
-// }
-    //if (score === 0 && home || endGame === false)
+        />
+    </>
+    );
+}
+    // if (score === 0 && home || endGame === false)
 
     return (
     <main>
@@ -90,7 +108,7 @@ const App = () => {
         </button>
         </div>
 
-        <div className="scoreDiv">
+        {/* <div className="scoreDiv">
         {questions.length === 9 && (
             <Score 
             score={score}
@@ -103,13 +121,19 @@ const App = () => {
             setTriviaData={setTriviaData}
             setCurrentPage={setCurrentPage}
             restartTrivia={restartTrivia}
+            showScore={showScore}
+            //getFinalScore={getFinalScore}
             />
         )}
-        </div>
+        </div> */}
 
     <div className="categoryQuestion">
         {questions.length > 0 && !home ? (
         <div>
+            <button
+            onClick={() => setHome(true)}>
+                Return Home/Change Category
+            </button>
         {questions.map((question, idx) => {
             if (idx === currentQuestion) {
             return (
@@ -123,9 +147,11 @@ const App = () => {
                 setCurrentQuestion={setCurrentQuestion}
                 i={idx}
                 currentQuestion={currentQuestion}
-                triviaData={triviaData}
-                setTriviaData={setTriviaData}
-                setCurrentPage={setCurrentPage}
+                // triviaData={triviaData}
+                // setTriviaData={setTriviaData}
+                // setCurrentPage={setCurrentPage}
+                // endGame={endGame}
+                setEndGame={setEndGame}
                 />
             );
             } else {

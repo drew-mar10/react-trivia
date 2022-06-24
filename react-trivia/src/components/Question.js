@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Score from "./Score";
 import he from "he";
 
-const Question = ({ question, setScore, score, idx, i, questions, setQuestions, currentQuestion, setCurrentQuestion }) => {
+const Question = ({ question, setScore, score, idx, i, questions, setQuestions, currentQuestion, setCurrentQuestion, endGame, setEndGame, home, setHome,triviaData, setTriviaData, setCurrentPage, restartTrivia, showScore, getFinalScore, setShowScore }) => {
     const [isAnswered, setisAnswered] = useState(false);
     const [correct, setIsCorrect] = useState(false);
 
@@ -62,15 +62,42 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
         {shuffledAnswers[1]}</button>
     </div>
     <br/>
-    <button className="nextQuest" onClick={() => 
+
+    {/* <div>
+    {correct === true && (
+    <alert>
+        <strong>Correct!</strong>
+    </alert>
+    )}
+    </div>
+
+    <div>
+    {correct === false && (
+    <alert>
+        <strong>Wrong!</strong>
+    </alert>
+    )}
+    </div> */}
+
+    <button className="nextQuest" onClick={() => {
+        if (i <=9 && isAnswered) {
+            nextQuest()
+        }
+        if (i >= 9 && isAnswered) {
+            setEndGame(true)
+    }}}>
+        Next Question
+    </button>
+    {/* <button className="nextQuest" onClick={() => 
         nextQuest()
         }>
             Next question
-    </button>
+    </button> */}
 
-    {/* <Score
-    score={score}
-    /> */}
+
+        <div className="scoreDiv">
+            <h2>Your score is: {score}</h2>
+        </div>
     </div>
     );
 };
