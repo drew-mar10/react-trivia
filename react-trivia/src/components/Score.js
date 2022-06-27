@@ -9,12 +9,13 @@ const Score = ({ score, getFinalScore, setShowScore, showScore, setHome, setEndG
             <h2>Your final score is: {score}</h2>
         </div>
 
-        <button className="h1" onClick={() => {
+        <button className="playAgain" onClick={() => {
         setEndGame(true);
         setHome(true);
-        // setCurrentQuestion(0); 
+        //setCurrentQuestion(0); 
         setScore(0);
-        restartTrivia(true);
+        //restartTrivia();
+        setHome(true);
         // currentPage(true);
         }}>
             Play again?

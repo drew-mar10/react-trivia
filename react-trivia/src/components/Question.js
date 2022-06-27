@@ -35,7 +35,7 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
     <div className="answerButts">
 
         <button className="btn1" key={idx} disabled={isAnswered}
-        onClick={()=> { 
+        onClick={()=> {
             if (shuffledAnswers[0] === question.correct_answer) { 
                 setScore((score += 1))
                 setisAnswered(true)
@@ -49,7 +49,7 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
 
 
         <button className="btn2" key={idx} disabled={isAnswered}
-            onClick={()=> { 
+            onClick={()=> {
             if (shuffledAnswers[1] === question.correct_answer) { 
             setScore((score += 1))
                 setisAnswered(true)
@@ -62,22 +62,6 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
         {shuffledAnswers[1]}</button>
     </div>
     <br/>
-
-    {/* <div>
-    {correct === true && (
-    <alert>
-        <strong>Correct!</strong>
-    </alert>
-    )}
-    </div>
-
-    <div>
-    {correct === false && (
-    <alert>
-        <strong>Wrong!</strong>
-    </alert>
-    )}
-    </div> */}
 
     <button className="nextQuest" onClick={() => {
         if (i <=9 && isAnswered) {

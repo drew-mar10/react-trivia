@@ -48,9 +48,10 @@ button.h1, h1 {
 div.categoryQuestion{
     margin: 10pt;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 button.catButts {
@@ -69,8 +70,8 @@ button.catButts {
     text-align: center;
     text-decoration: none #000000 solid;
     text-decoration-thickness: auto;
-    width: 80%;
-    max-width: 400px;
+    width: auto;
+    /* max-width: 400px; */
     position: relative;
     cursor: pointer;
     transform: rotate(-2deg);
@@ -106,11 +107,16 @@ button.catButts {
 }
 
 div.questDiv{
-    border-radius: 3pt;
-    border-color: black;
+    /* border-radius: 30px; */
+    /* border-color: black; */
+    display: inline;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    /* flex-wrap: wrap; */
 }
 
-button.catButts, button.addScore{
+button.catButts {
     background-color: turquoise;
 }
 
@@ -168,7 +174,7 @@ p {
     font-weight: 900;
 }
 
-button.addScore{
+button.playAgain{
     background-color:turquoise;
     border: 1px solid black;
     box-sizing: border-box;

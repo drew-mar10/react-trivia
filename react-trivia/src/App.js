@@ -74,7 +74,7 @@ const App = () => {
                     setHome={setHome}
                     home={home}
                     setEndGame={setEndGame}
-                    // setCurrentQuestion={setCurrentQuestion}
+                    setCurrentQuestion={setCurrentQuestion}
                     // triviaData={triviaData}
                     // setTriviaData={setTriviaData}
                     // setCurrentPage={setCurrentPage}
@@ -127,7 +127,7 @@ const App = () => {
         )}
         </div> */}
 
-    <div className="categoryQuestion">
+    <div>
         {questions.length > 0 && !home ? (
         <div>
             <button
@@ -163,12 +163,14 @@ const App = () => {
         ) : (
         categories.map((category) => {
             return (
+                <div className="categoryQuestion">
             <CategorySelect
                 key={category.id}
                 category={category}
                 setSelected={setSelected}
                 setHome={setHome}
                 />
+                </div>
             );
         })
         )}
