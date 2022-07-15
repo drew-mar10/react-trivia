@@ -19,8 +19,8 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
-    }
-}
+    }}
+
     const shuffledAnswers = allAnswersArray
         shuffleArray(shuffledAnswers)
 
@@ -47,7 +47,6 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
 
         {shuffledAnswers[0]}</button>
 
-
         <button className="btn2" key={idx} disabled={isAnswered}
             onClick={()=> {
             if (shuffledAnswers[1] === question.correct_answer) { 
@@ -72,12 +71,6 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
     }}}>
         Next Question
     </button>
-    {/* <button className="nextQuest" onClick={() => 
-        nextQuest()
-        }>
-            Next question
-    </button> */}
-
 
         <div className="scoreDiv">
             <h2>Your score is: {score}</h2>

@@ -15,34 +15,11 @@ const App = () => {
     const [endGame, setEndGame] = useState(false);
     const [home, setHome] = useState(true);
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [triviaData, setTriviaData] = useState(null);
-    const [currentPage, setCurrentPage] = useState("home");
-    const [errorPrompt, setErrorPrompt] = useState(false);
-    const [quizDuration, setQuizDuration] = useState(10);
-    const [numberOfQuestions, setNumberOfQuestions] = useState(10);
-    const [showScore, setShowScore] = useState(false);
 
-    const restartTrivia = () => {
-        setTriviaData(null);
-        setCurrentPage("home");
-        setHome(true);
-        setScore(0);
-        setCurrentQuestion(0);
-    };
+    const refreshPage = () => {
+        window.location.reload(false)
+    }
 
-    // const isNumberOfQuestionsValid =
-    //     numberOfQuestions >= 1 && 
-    //     numberOfQuestions <= 50 &&
-    //     numberOfQuestions % 1 === 0;
-
-    // const formIsValid = quizDuration > 0 && isNumberOfQuestionsValid
-
-    // const getFinalScore = () => {
-    //     const finalScore = 0;
-    //     if (questions.length === 9 && score === 10 && endGame) {
-    //         return finalScore;
-    //     }
-    // }
 
 //Categories
     useEffect(() => {
@@ -69,63 +46,29 @@ const App = () => {
         return (
         <>
         <Score
-                    score={score}
-                    setScore={setScore}
-                    setHome={setHome}
-                    home={home}
-                    setEndGame={setEndGame}
-                    setCurrentQuestion={setCurrentQuestion}
-                    // triviaData={triviaData}
-                    // setTriviaData={setTriviaData}
-                    // setCurrentPage={setCurrentPage}
-                    restartTrivia={restartTrivia}
-                    // showScore={showScore}
-        // score={score}
-        // setScore={setScore}
-        // setHome={setHome}
-        // home={home}
-        // setEndGame={setEndGame}
-        // setCurrentQuestion={setCurrentQuestion}
-        // triviaData={triviaData}
-        // setTriviaData={setTriviaData}
-        // setCurrentPage={setCurrentPage}
-        // restartTrivia={restartTrivia}
-        />
-    </>
-    );
-}
-    // if (score === 0 && home || endGame === false)
-
-    return (
-    <main>
-        <div className="headerDiv">
-        <button className="h1"
-        onClick={() =>
-        restartTrivia()}>
-            <center>
-                It's called Trivi-'ah', not trivi-'uh'
-            </center>
-        </button>
-        </div>
-
-        {/* <div className="scoreDiv">
-        {questions.length === 9 && (
-            <Score 
             score={score}
             setScore={setScore}
             setHome={setHome}
             home={home}
             setEndGame={setEndGame}
             setCurrentQuestion={setCurrentQuestion}
-            triviaData={triviaData}
-            setTriviaData={setTriviaData}
-            setCurrentPage={setCurrentPage}
-            restartTrivia={restartTrivia}
-            showScore={showScore}
-            //getFinalScore={getFinalScore}
-            />
-        )}
-        </div> */}
+        />
+    </>
+    );
+}
+
+    return (
+    <main>
+        <div className="headerDiv">
+        <button className="h1"
+        onClick={() =>
+        refreshPage(true)}
+        >
+            <center>
+                It's called Trivi-'ah', not trivi-'uh'
+            </center>
+        </button>
+        </div>
 
     <div>
         {questions.length > 0 && !home ? (
@@ -147,10 +90,6 @@ const App = () => {
                 setCurrentQuestion={setCurrentQuestion}
                 i={idx}
                 currentQuestion={currentQuestion}
-                // triviaData={triviaData}
-                // setTriviaData={setTriviaData}
-                // setCurrentPage={setCurrentPage}
-                // endGame={endGame}
                 setEndGame={setEndGame}
                 />
             );
@@ -177,7 +116,6 @@ const App = () => {
     </div>
     </main>
     );
-    // return null
 };
 
 export default App;
