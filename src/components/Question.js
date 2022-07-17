@@ -28,11 +28,20 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
     return (
 
     <div className="questDiv">
-    
-    <p><u>Question {i + 1} / 10</u></p>
-    <p>{he.decode(question.question)}</p>
 
-    <div className="answerButts">
+        <div className="scoreDiv">
+            <h2>Your score is: {score}</h2>
+        </div>
+
+    <div className="questionNumber">
+    <p><u>Question {i + 1} / 10</u></p>
+    </div>
+
+    <div className="questionDisplay">
+        <p>{he.decode(question.question)}</p>
+    </div>
+
+        <div className="answerButts">
 
         <button className="btn1" key={idx} disabled={isAnswered}
         onClick={()=> {
@@ -59,22 +68,26 @@ const Question = ({ question, setScore, score, idx, i, questions, setQuestions, 
             }}}>
 
         {shuffledAnswers[1]}</button>
-    </div>
+        </div>
     <br/>
 
+    <div className="bottomButts">
     <button className="nextQuest" onClick={() => {
         if (i <=9 && isAnswered) {
             nextQuest()
         }
         if (i >= 9 && isAnswered) {
-            setEndGame(true)
-    }}}>
+            setEndGame(true)}
+    }}>
         Next Question
     </button>
 
-        <div className="scoreDiv">
-            <h2>Your score is: {score}</h2>
-        </div>
+    {/* <button className="changeCategory"
+    onClick={() => setHome(true)}>
+        Return Home/Change Category
+    </button> */}
+    </div>
+
     </div>
     );
 };

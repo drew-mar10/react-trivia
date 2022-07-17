@@ -106,21 +106,43 @@ button.catButts {
     }
 }
 
-div.questDiv{
+/* div.questDiv{ */
     /* border-radius: 30px; */
     /* border-color: black; */
-    display: inline;
-    flex-direction: column;
-    position: relative;
-    justify-content: center;
+    /* display: inline; */
+    /* flex-direction: column; */
+    /* position: relative; */
+    /* justify-content: space-around; */
     /* flex-wrap: wrap; */
-}
+/* } */
 
 button.catButts {
     background-color: turquoise;
 }
 
-button.btn1, button.btn2, button.nextQuest {
+div.questionDisplay {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+div.questionNumber {
+    padding-left: 20pt;
+    font-size: 15pt;
+}
+
+div.answerButts {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20pt;
+}
+
+div.bottomButts {
+    display: flex;
+    justify-content: center;
+}
+
+button.btn1, button.btn2, button.nextQuest, button.changeCategory {
     align-self: center;
     background-color: #fff;
     background-image: none;

@@ -73,10 +73,10 @@ const App = () => {
     <div>
         {questions.length > 0 && !home ? (
         <div>
-            <button
+            {/* <button
             onClick={() => setHome(true)}>
                 Return Home/Change Category
-            </button>
+            </button> */}
         {questions.map((question, idx) => {
             if (idx === currentQuestion) {
             return (
